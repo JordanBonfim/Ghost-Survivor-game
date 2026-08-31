@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cyq1na1tyweir"]
+
+[ext_resource type="Texture2D" uid="uid://r5r2m5upv335" path="res://assets/player/GUNS.png" id="1_tk860"]
+[ext_resource type="Script" uid="uid://k5odhmrp40ii" path="res://weapon_tesdt.gd" id="2_cun4m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cun4m"]
+atlas = ExtResource("1_tk860")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ht2op"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cun4m")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" unique_id=710674261]
+position = Vector2(9, 0)
+sprite_frames = SubResource("SpriteFrames_ht2op")
+script = ExtResource("2_cun4m")
