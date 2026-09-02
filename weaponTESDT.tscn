@@ -18,7 +18,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve" id="Curve_v7avb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_edhe6"]
+offsets = PackedFloat32Array(0, 0.537037)
+colors = PackedColorArray(0.94448864, 0.25785846, 0, 1, 0.8666667, 0.46666667, 0, 1)
+
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" unique_id=710674261]
-position = Vector2(9, 0)
 sprite_frames = SubResource("SpriteFrames_ht2op")
 script = ExtResource("2_cun4m")
+
+[node name="Shot" type="CPUParticles2D" parent="." unique_id=429914978]
+visible = false
+position = Vector2(14, 0)
+lifetime = 0.32
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 48.83
+initial_velocity_min = 69.32
+initial_velocity_max = 168.33
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_v7avb")
+color_ramp = SubResource("Gradient_edhe6")
