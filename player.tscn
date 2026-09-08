@@ -78,7 +78,6 @@ size = Vector2(30, 31)
 
 [node name="Player" type="CharacterBody2D" unique_id=2115424054]
 collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2145249820]
@@ -87,7 +86,7 @@ animation = &"idle_main"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1945008637]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1118314644]
+[node name="player_colision" type="CollisionShape2D" parent="." unique_id=1118314644]
 position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_sjk5h")
 

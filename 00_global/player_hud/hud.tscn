@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://1ofhw3mq00fi"]
+
+[ext_resource type="Script" uid="uid://dluwuqdtd5113" path="res://00_global/player_hud/player_hud.gd" id="1_6osyk"]
+[ext_resource type="Texture2D" uid="uid://nkm2jplybied" path="res://assets/UI/ghost-life1.png" id="1_640wx"]
+[ext_resource type="Texture2D" uid="uid://dxb1hpsd0kcx4" path="res://assets/UI/healthbar.png" id="1_a2258"]
+[ext_resource type="Texture2D" uid="uid://c0s2d8yyda0d7" path="res://assets/UI/ghost-life2.png" id="2_a2258"]
+[ext_resource type="Texture2D" uid="uid://bycqet0q647by" path="res://assets/UI/ghost-life3.png" id="3_1xsix"]
+[ext_resource type="Texture2D" uid="uid://n0rou8nwv41y" path="res://assets/UI/ghost-life4.png" id="4_rftc2"]
+[ext_resource type="Script" uid="uid://bv2k0vha4es07" path="res://00_global/player_hud/health_bar_sprite_animation.gd" id="6_1xsix"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_1bvp3"]
+frames = 4
+frame_0/texture = ExtResource("1_640wx")
+frame_1/texture = ExtResource("2_a2258")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_1xsix")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_rftc2")
+frame_3/duration = 1.0
+
+[sub_resource type="Gradient" id="Gradient_1xsix"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v7avb"]
+gradient = SubResource("Gradient_1xsix")
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_rftc2"]
+offsets = PackedFloat32Array(0.47402596, 1)
+colors = PackedColorArray(0.5817529, 0.16456363, 0.2409668, 1, 0.92187566, 0.38143447, 0.42999542, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bquf4"]
+gradient = SubResource("Gradient_rftc2")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7avb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_640wx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_a2258")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1xsix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rftc2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HUD" type="CanvasLayer" unique_id=2009098548]
+process_mode = 3
+layer = 2
+script = ExtResource("1_6osyk")
+
+[node name="Control" type="Control" parent="." unique_id=1397417744]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HPMarginContainer" type="MarginContainer" parent="Control" unique_id=1121708902]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 148.0
+offset_bottom = 42.0
+scale = Vector2(1.5, 1.5)
+offset_transform_position = Vector2(10, 10)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HPMarginContainer" unique_id=1893995794]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HPMarginContainer/HBoxContainer" unique_id=1952175309]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_1bvp3")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/HPMarginContainer" unique_id=1363115151]
+custom_minimum_size = Vector2(89, 32)
+layout_mode = 2
+texture = ExtResource("1_a2258")
+region_rect = Rect2(0, 0, 89, 32)
+patch_margin_left = 50
+patch_margin_right = 24
+
+[node name="HPBar" type="TextureProgressBar" parent="Control/HPMarginContainer/NinePatchRect" unique_id=1816117710]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 7.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+rounded = true
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_v7avb")
+texture_progress = SubResource("GradientTexture2D_bquf4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/HPMarginContainer" unique_id=1341734231]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HPMarginContainer/MarginContainer" unique_id=1905216834]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/HPMarginContainer/MarginContainer/HBoxContainer" unique_id=2099156936]
+position = Vector2(16, 16.666668)
+scale = Vector2(0.8854166, 0.8854166)
+sprite_frames = SubResource("SpriteFrames_v7avb")
+frame_progress = 0.43547237
+script = ExtResource("6_1xsix")
