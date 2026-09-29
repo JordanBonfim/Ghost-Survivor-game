@@ -1,17 +1,12 @@
 extends CharacterBody2D
 
-
-
-
-
-
 #region PLAYER STATS
-var hp: float = 20:
+var hp: float = 100:
 	set(value):
 		hp = clampf(value, 0, max_hp) 
 		Messages.player_health_changed.emit(hp, max_hp)
 		
-var max_hp:float = 20 :
+var max_hp:float = 100 :
 	#Heal player every time health increases??? Think.
 	set(value):
 		max_hp = value 
@@ -22,11 +17,17 @@ const SPEED = 300.0
 #endregion
 
 
+@onready var timer: Timer = $Timer
+
 func _ready() -> void:
 	$AnimatedSprite2D.play("idle_main")
+	Messages.player_hit.connect(set_player_health)
+	
 
 func _unhandled_input(event):
 	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_ESCAPE:
+			get_tree().paused = !get_tree().paused
 		if event.keycode == KEY_MINUS:
 			if Input.is_key_pressed(KEY_SHIFT):
 				max_hp-=10
@@ -39,8 +40,9 @@ func _unhandled_input(event):
 			else:
 				print("LIFE:", hp)
 				hp+=2
+
 		
-	
+			
 	#if event is InputEventMouseButton and event.pressed:
 		#print("Clicked at:", event.position)
 		#print("mouse position:", get_local_mouse_position())
@@ -76,4 +78,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	
-	
+func set_player_health(health : float) -> void:
+	hp = health
+	#if(hp <= 0):
+	#	print("vida zerada")
+   

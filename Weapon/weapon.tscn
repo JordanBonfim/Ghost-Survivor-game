@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cyq1na1tyweir"]
 
-[ext_resource type="Texture2D" uid="uid://r5r2m5upv335" path="res://assets/player/GUNS.png" id="1_tk860"]
-[ext_resource type="Script" uid="uid://k5odhmrp40ii" path="res://weapon_tesdt.gd" id="2_cun4m"]
+[ext_resource type="Texture2D" uid="uid://r5r2m5upv335" path="res://assets/player/GUNS.png" id="1_4447s"]
+[ext_resource type="Script" uid="uid://k5odhmrp40ii" path="res://weapon_tesdt.gd" id="2_lsg31"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cun4m"]
-atlas = ExtResource("1_tk860")
+atlas = ExtResource("1_4447s")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ht2op"]
@@ -28,7 +28,7 @@ colors = PackedColorArray(0.94448864, 0.25785846, 0, 1, 0.8666667, 0.46666667, 0
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" unique_id=710674261]
 sprite_frames = SubResource("SpriteFrames_ht2op")
-script = ExtResource("2_cun4m")
+script = ExtResource("2_lsg31")
 
 [node name="Shot" type="CPUParticles2D" parent="." unique_id=429914978]
 visible = false

@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bgol1ghr1rmx7"]
 
-[ext_resource type="Script" uid="uid://6d6nciba6au" path="res://enemie_1.gd" id="1_01hkl"]
-[ext_resource type="Texture2D" uid="uid://cwo8mqgpsn6mt" path="res://assets/Enemies/ene4.png" id="1_feng4"]
-[ext_resource type="Texture2D" uid="uid://bmw8g8qqp80b1" path="res://assets/Enemies/ene5.png" id="2_01hkl"]
-[ext_resource type="Texture2D" uid="uid://bsgtrom3nd5tc" path="res://assets/Enemies/enemies-ase.png" id="2_8a3xm"]
-[ext_resource type="Texture2D" uid="uid://d4fd283npf4jl" path="res://assets/Enemies/ene6.png" id="3_8a3xm"]
-[ext_resource type="Texture2D" uid="uid://b62amflvwqwtg" path="res://assets/Enemies/ene1.png" id="4_s2i5t"]
-[ext_resource type="Texture2D" uid="uid://blfywl1pyu8eu" path="res://assets/Enemies/ene2.png" id="5_m0wwd"]
-[ext_resource type="Texture2D" uid="uid://dhnh3jrut5cw1" path="res://assets/Enemies/ene3.png" id="6_4v621"]
+[ext_resource type="Script" uid="uid://6d6nciba6au" path="res://enemy_1.gd" id="1_mi564"]
+[ext_resource type="Texture2D" uid="uid://bsgtrom3nd5tc" path="res://assets/Enemies/enemies-ase.png" id="2_tnyew"]
+[ext_resource type="Texture2D" uid="uid://cwo8mqgpsn6mt" path="res://assets/Enemies/ene4.png" id="3_u1fve"]
+[ext_resource type="Texture2D" uid="uid://bmw8g8qqp80b1" path="res://assets/Enemies/ene5.png" id="4_ya3f7"]
+[ext_resource type="Texture2D" uid="uid://d4fd283npf4jl" path="res://assets/Enemies/ene6.png" id="5_gkv6h"]
+[ext_resource type="Texture2D" uid="uid://b62amflvwqwtg" path="res://assets/Enemies/ene1.png" id="6_0mdy6"]
+[ext_resource type="Texture2D" uid="uid://blfywl1pyu8eu" path="res://assets/Enemies/ene2.png" id="7_n3e72"]
+[ext_resource type="Texture2D" uid="uid://dhnh3jrut5cw1" path="res://assets/Enemies/ene3.png" id="8_s5rup"]
 
 [sub_resource type="Animation" id="Animation_s2i5t"]
 length = 0.001
@@ -106,13 +106,13 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_feng4")
+"texture": ExtResource("3_u1fve")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_01hkl")
+"texture": ExtResource("4_ya3f7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_8a3xm")
+"texture": ExtResource("5_gkv6h")
 }],
 "loop": 1,
 "name": &"moving",
@@ -120,13 +120,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_s2i5t")
+"texture": ExtResource("6_0mdy6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_m0wwd")
+"texture": ExtResource("7_n3e72")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_4v621")
+"texture": ExtResource("8_s5rup")
 }],
 "loop": 1,
 "name": &"punch",
@@ -143,10 +143,11 @@ size = Vector2(25, 56)
 size = Vector2(48.25, 45)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1750923966]
-script = ExtResource("1_01hkl")
+collision_layer = 4
+script = ExtResource("1_mi564")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=734587875]
-texture = ExtResource("2_8a3xm")
+texture = ExtResource("2_tnyew")
 hframes = 10
 vframes = 10
 
@@ -164,7 +165,6 @@ position = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_v7avb")
 
 [node name="PlayerDetector" type="Area2D" parent="." unique_id=1071430044]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -173,7 +173,6 @@ position = Vector2(31, 2)
 shape = SubResource("RectangleShape2D_bquf4")
 
 [node name="AttackDetector" type="Area2D" parent="." unique_id=305991524]
-visible = false
 monitoring = false
 monitorable = false
 
